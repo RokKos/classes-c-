@@ -39,4 +39,15 @@ public:
 
 std::ostream& operator<<(std::ostream& output, const Polynomial& x);
 
+// Adding polynom to polynom
+const Polynomial operator+(const Polynomial&, const Polynomial&);
+
+// Adding double to polynom
+const Polynomial operator+(const Polynomial&, const double);
+const Polynomial operator+(const double, const Polynomial&);
+
+// Adding int to polynom
+const Polynomial operator+(const Polynomial&, const int);
+const Polynomial operator+(const int, const Polynomial&);
+
 #endif  // _POLYNOMIAL_HPP_

@@ -73,3 +73,42 @@ std::ostream& operator<<(std::ostream& output, const Polynomial& x) {
 	}
 	return output;
 }
+
+const Polynomial operator+(const Polynomial& rhs1, const Polynomial& rhs2) {
+	Polynomial result(rhs1);
+	if (rhs1.getDegree() < rhs2.getDegree()) {
+		result = rhs2;
+		for (int i = 0; i < rhs1.getDegree()+1; ++i) {
+			result[i] += rhs1[i];
+		}
+	} else {
+		for (int i = 0; i < rhs2.getDegree()+1; ++i) {
+			result[i] += rhs2[i];
+		}
+	}
+	return result;
+}
+
+const Polynomial operator+(const Polynomial& rhs1, const double c) {
+	Polynomial result(rhs1);
+	result[0] += c;
+	return result;
+}
+
+const Polynomial operator+(const double c, const Polynomial& rhs1) {
+	Polynomial result(rhs1);
+	result[0] += c;
+	return result;
+}
+
+const Polynomial operator+(const Polynomial& rhs1, const int c) {
+	Polynomial result(rhs1);
+	result[0] += c;
+	return result;
+}
+
+const Polynomial operator+(const int c, const Polynomial& rhs1) {
+	Polynomial result(rhs1);
+	result[0] += c;
+	return result;
+}
