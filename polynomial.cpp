@@ -112,3 +112,53 @@ const Polynomial operator+(const int c, const Polynomial& rhs1) {
 	result[0] += c;
 	return result;
 }
+
+const Polynomial operator*(const Polynomial& rhs1, const Polynomial& rhs2) {
+	int newDegree = rhs1.getDegree() + rhs2.getDegree();
+	double* newCoef = new double[newDegree+1];
+	for (int i = 0; i < newDegree + 1; ++i) {
+		newCoef[i] = 0;
+	}
+
+	Polynomial result(newDegree, newCoef);
+
+	for (int i = 0; i < rhs1.getDegree() + 1; ++i) {
+		for (int j = 0; j < rhs2.getDegree() + 1; ++j) {
+			result[i+j] += rhs1[i] * rhs2[j];
+		}
+	}
+
+	return result;
+}
+
+const Polynomial operator*(const Polynomial& rhs1, const double c) {
+	Polynomial result(rhs1);
+	for (int i = 0; i < rhs1.getDegree() + 1; ++i) {
+		result[i] *= c;
+	}
+	return result;
+}
+
+const Polynomial operator*(const double c, const Polynomial& rhs1) {
+	Polynomial result(rhs1);
+	for (int i = 0; i < rhs1.getDegree() + 1; ++i) {
+		result[i] *= c;
+	}
+	return result;
+}
+
+const Polynomial operator*(const Polynomial& rhs1, const int c) {
+	Polynomial result(rhs1);
+	for (int i = 0; i < rhs1.getDegree() + 1; ++i) {
+		result[i] *= c;
+	}
+	return result;
+}
+
+const Polynomial operator*(const int c, const Polynomial& rhs1) {
+	Polynomial result(rhs1);
+	for (int i = 0; i < rhs1.getDegree() + 1; ++i) {
+		result[i] *= c;
+	}
+	return result;
+}

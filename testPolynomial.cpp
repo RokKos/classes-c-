@@ -35,6 +35,16 @@ int main() {
 	cout << pol4 << endl;
 	pol4 = pol4 + pol5;
 	cout << pol4 << endl;
+	//10.3
+	Polynomial pol6 = pol1 * pol2;
+	cout << pol6 << endl;
+	cout << pol4 * pol2 << endl;
+	cout << pol5 * pol1 << endl;
+	cout << pol1 * 2.3 << endl;
+	cout << pol1 * 3 << endl;
+	cout <<  2.5 * pol1  << endl;
+	cout <<  3 * pol1  << endl;
 	delete[] coef1;
+	delete[] coef2;
 	return 0;
 }

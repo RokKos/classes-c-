@@ -50,4 +50,16 @@ const Polynomial operator+(const double, const Polynomial&);
 const Polynomial operator+(const Polynomial&, const int);
 const Polynomial operator+(const int, const Polynomial&);
 
+// Multiplying polynom to polynom
+const Polynomial operator*(const Polynomial&, const Polynomial&);
+
+// Multiplying double to polynom
+const Polynomial operator*(const Polynomial&, const double);
+const Polynomial operator*(const double, const Polynomial&);
+
+// Multiplying int to polynom
+const Polynomial operator*(const Polynomial&, const int);
+const Polynomial operator*(const int, const Polynomial&);
+
+
 #endif  // _POLYNOMIAL_HPP_
