@@ -156,3 +156,48 @@ const Polynomial operator*(const int c, const Polynomial& rhs1) {
 	}
 	return result;
 }
+
+Polynomial& Polynomial::operator()(const int k) {
+	assert(k >= 0);
+	int newDegree = this->degree - k;
+	double* newCoef = new double[newDegree + 1];
+	for (int i = k; i < this->degree + 1; ++i) {
+		// Set on rigth position
+		newCoef[i - k] = coeffcients[i];
+		double t = 1;
+		for (int j = i - k + 1; j < i + 1; ++j) {
+			t *= j;
+		}
+		// Multyplay by all derivates
+		newCoef[i - k] *= t;
+	}
+	delete[] coeffcients;
+	// Copy over new coefficients
+	coeffcients = new double[newDegree + 1];
+	for (int i = 0; i < newDegree + 1; ++i) {
+		coeffcients[i] = newCoef[i];
+	}
+	this->degree = newDegree;
+	return *this;
+}
+
+const double Polynomial::operator()(const int k, const double x) {
+	assert(k >= 0);
+	int newDegree = this->degree - k;
+	double* newCoef = new double[newDegree + 1];
+	for (int i = k; i < this->degree + 1; ++i) {
+		// Set on rigth position
+		newCoef[i - k] = coeffcients[i];
+		double t = 1;
+		for (int j = i - k + 1; j < i + 1; ++j) {
+			t *= j;
+		}
+		// Multyplay by all derivates
+		newCoef[i - k] *= t;
+	}
+	double result = 0;
+	for (int i = 0; i < newDegree + 1; ++i) {
+		result += newCoef[i] * pow(x, i);
+	}
+	return result;
+}

@@ -4,6 +4,7 @@
 // System includes
 #include <cassert>
 #include <iostream>
+#include <math.h>
 
 // User includes
 
@@ -34,6 +35,9 @@ public:
 	double& operator[](int i);
 	// Get degree of polynom
 	int getDegree() const;
+	// K-derivate of polynom
+	Polynomial& operator()(const int);
+	const double operator()(const int, const double);
 
 };
 
