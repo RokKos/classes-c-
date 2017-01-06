@@ -1,26 +1,20 @@
 #include "polynomial.hpp"
 
 Polynomial::Polynomial(int _degree, double* _coeffcients){
+	assert(this->degree>=0);
 	this->degree = _degree;
-	if (_degree == 0) {
-		coeffcients = (double*) NULL;
-	} else {
-		coeffcients = new double[_degree + 1];  // there is n+1 coeffcients
-		for (int i = 0; i < _degree + 1; ++i) {
-			coeffcients[i] = _coeffcients[i];
-		}
+	coeffcients = new double[_degree + 1];  // there is n+1 coeffcients
+	for (int i = 0; i < _degree + 1; ++i) {
+		coeffcients[i] = _coeffcients[i];
 	}
 }
 
 Polynomial::Polynomial(const Polynomial& rhs){
+	assert(rhs.getDegree()>=0);
 	this->degree = rhs.getDegree();
-	if (this->degree == 0) {
-		coeffcients = (double*) NULL;
-	} else {
-		coeffcients = new double[this->degree + 1];
-		for (int i = 0; i < this->degree + 1; ++i) {
-			coeffcients[i] = rhs[i];
-		}
+	coeffcients = new double[this->degree + 1];
+	for (int i = 0; i < this->degree + 1; ++i) {
+		coeffcients[i] = rhs[i];
 	}
 }
 
