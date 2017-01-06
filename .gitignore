@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+
+# Ignored folders
+bin/
+build/
+lib/
