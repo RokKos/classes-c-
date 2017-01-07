@@ -63,7 +63,7 @@ std::ostream& operator<<(std::ostream& output, const Polynomial& x) {
 	output << "Degree: " << n << " \n";
 	output << "Coeffcients: ";
 	for (int i = 0; i < n + 1; ++i) {
-		output << x[i] << " ";
+		output << x[i] << "x^" << i << " ";
 	}
 	return output;
 }

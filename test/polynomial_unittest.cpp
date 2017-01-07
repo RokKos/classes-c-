@@ -159,3 +159,32 @@ TEST (Polynomial, OperatorPlus) {
 	EXPECT_EQ(3,pol14[0]);
 	EXPECT_EQ(3,pol15[0]);
 }
+
+TEST (Polynomial, OutputOperator) {
+	int degree1 = 3;
+	int degree2 = 2;
+	double* coef1 = new double[degree1 + 1];
+	double* coef2 = new double[degree2 + 1];
+	for (int i = 0; i < degree1 + 1; ++i) {
+		coef1[i] = i + 1;
+	}
+	for (int i = 0; i < degree2 + 1; ++i) {
+		coef2[i] = i + 1;
+	}
+	double* coef3 = new double[1];
+	coef3[0] = 1.0;
+	// Polinoms
+	Polynomial polinom1(degree1, coef1);
+	Polynomial polinom2(degree2, coef2);
+	Polynomial polinom3(0,coef2);
+	// Output streams
+	std::ostringstream out1;
+	std::ostringstream out2;
+	std::ostringstream out3;
+	out1 << polinom1;
+	EXPECT_EQ( "Degree: 3 \nCoeffcients: 1x^0 2x^1 3x^2 4x^3 ", out1.str());
+	out2 << polinom2;
+	EXPECT_EQ( "Degree: 2 \nCoeffcients: 1x^0 2x^1 3x^2 ", out2.str());
+	out3 << polinom3;
+	EXPECT_EQ( "Degree: 0 \nCoeffcients: 1x^0 ", out3.str());
+}
