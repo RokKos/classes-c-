@@ -1,7 +1,7 @@
 #include "polynomial.hpp"
 
 Polynomial::Polynomial(int _degree, double* _coeffcients){
-	assert(this->degree>=0);
+	assert(_degree>=0);
 	this->degree = _degree;
 	coeffcients = new double[_degree + 1];  // there is n+1 coeffcients
 	for (int i = 0; i < _degree + 1; ++i) {

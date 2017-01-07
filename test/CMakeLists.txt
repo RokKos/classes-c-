@@ -1,8 +1,8 @@
 # Include google test
-#add_subdirectory(googletest)
-#include_directories(googletest/googletest/include)
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+add_subdirectory(googletest)
+include_directories(googletest/googletest/include)
+#find_package(GTest REQUIRED)
+#include_directories(${GTEST_INCLUDE_DIRS})
 
 set(TEST_FILES
     polynomial_unittest.cpp
