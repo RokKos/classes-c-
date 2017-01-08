@@ -25,8 +25,8 @@ before_install:
 
 install:
     - cd ${TRAVIS_BUILD_DIR}
-    - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
-    - tar xf lcov_1.11.orig.tar.gz
+    - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.13.orig.tar.gz
+    - tar xf lcov_1.13.orig.tar.gz
     - cd lcov-1.13/
     - sudo make install
     - cd ..
