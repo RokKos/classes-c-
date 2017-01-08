@@ -1,4 +1,4 @@
-# Classes C++ [![Build Status][travis-badge]][travis-link][![MIT License][license-badge]](LICENSE.md)
+# Classes C++ [![Build Status][travis-badge]][travis-link][![MIT License][license-badge]](LICENSE.md) [![Coverage Status][coveralls-badge]][coveralls-link]
 Repository for implementation of mathematical structures in as C++ classes.
 
 ### Table of Contents
@@ -58,3 +58,5 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 [travis-badge]:    https://travis-ci.org/RokKos/classes-c-.svg?branch=master
 [travis-link]:     https://travis-ci.org/RokKos/classes-c-
 [license-badge]:   https://img.shields.io/badge/license-MIT-007EC7.svg
+[coveralls-badge]: (https://coveralls.io/repos/github/RokKos/classes-c-/badge.svg?branch=master)
+[coveralls-link]: (https://coveralls.io/github/RokKos/classes-c-?branch=master)
