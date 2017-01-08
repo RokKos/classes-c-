@@ -52,7 +52,7 @@ If all tests are green then you are good to go.
 
 ##<a name="license"></a> License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/RokKos/classes-c-/blob/master/LICENSE) file for details.
 
 
 [travis-badge]:    https://travis-ci.org/RokKos/classes-c-.svg?branch=master
