@@ -37,5 +37,5 @@ fi
 workingprocess "All tests compile and pass."
 
 # Cleaning build directory
-cd ../
-rm -rf build/
+#cd ../
+#rm -rf build/
