@@ -40,6 +40,7 @@ after_success:
   - cd ${TRAVIS_BUILD_DIR}
   - lcov --directory . --capture --output-file coverage.info # capture coverage info
   - lcov --remove coverage.info 'test/googletest/*' '/usr/*' --output-file coverage.info # filter out system
+  - lcov --list coverage.info #debug info
   - coveralls-lcov --repo-token ${COVERALLS_TOKEN} coverage.info
 
 notifications:

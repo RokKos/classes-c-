@@ -1,4 +1,4 @@
-# Classes C++ [![Build Status][travis-badge]][travis-link][![MIT License][license-badge]](LICENSE.md) [![Coverage Status][coveralls-badge]][coveralls-link]
+# Classes C++ [![Build Status][travis-badge]][travis-link] [![MIT License][license-badge]](LICENSE.md) [![Coverage Status][coveralls-badge]][coveralls-link]
 Repository for implementation of mathematical structures in as C++ classes.
 
 ### Table of Contents

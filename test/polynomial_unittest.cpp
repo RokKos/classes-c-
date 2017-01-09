@@ -188,3 +188,70 @@ TEST (Polynomial, OutputOperator) {
 	out3 << polinom3;
 	EXPECT_EQ( "Degree: 0 \nCoeffcients: 1x^0 ", out3.str());
 }
+
+TEST (Polynomial, OperatorMult) {
+	// Testing polynom * polynom
+	int degree1 = 3;
+	int degree2 = 2;
+	double* coef1 = new double[degree1 + 1];
+	double* coef2 = new double[degree2 + 1];
+	for (int i = 0; i < degree1 + 1; ++i) {
+		coef1[i] = i + 1;
+	}
+	for (int i = 0; i < degree2 + 1; ++i) {
+		coef2[i] = i + 1;
+	}
+	double* coef3 = new double[1];
+	coef3[0] = 1.0;
+	Polynomial pol1(degree1, coef1);
+	Polynomial pol2(degree2, coef2);
+	Polynomial pol3(0,coef2);
+
+	double* rez1 = new double[7]{1,4,10,20,25,24,16};
+	Polynomial pol4 = pol1 * pol1;
+	for (int i = 0; i < 7; ++i) {
+		EXPECT_EQ(rez1[i],pol4[i]);
+	}
+
+	double* rez2 = new double[6]{1,4,10,16,17,12};
+	Polynomial pol5 = pol1 * pol2;
+	for (int i = 0; i < 6; ++i) {
+		EXPECT_EQ(rez2[i],pol5[i]);
+	}
+
+	double* rez3 = new double[5]{1,4,10,12,9};
+	Polynomial pol6 = pol2 * pol2;
+	for (int i = 0; i < 5; ++i) {
+		EXPECT_EQ(rez3[i],pol6[i]);
+	}
+
+	Polynomial pol7 = pol1 * pol3;
+	for (int i = 0; i < degree1 + 1; ++i) {
+		EXPECT_EQ(coef1[i],pol7[i]);
+	}
+	Polynomial pol8 = pol3 * pol3;
+	EXPECT_EQ(1.0,pol8[0]);
+
+	// Testing polynom * int
+	// polynom * double
+	// int * polynom
+	// double * polynom
+	Polynomial pol9 = pol1 * 2.5;
+	Polynomial pol10 = 2.5 * pol1;
+	Polynomial pol11 = pol1 * 3;
+	Polynomial pol12 = 3 * pol1;
+	for (int i = 0; i < degree1 + 1; ++i) {
+		EXPECT_EQ(coef1[i] * 2.5, pol9[i]);
+		EXPECT_EQ(coef1[i] * 2.5, pol10[i]);
+		EXPECT_EQ(coef1[i] * 3, pol11[i]);
+		EXPECT_EQ(coef1[i] * 3, pol12[i]);
+	}
+	Polynomial pol13 = pol3 * 1.0;
+	Polynomial pol14 = 1.0 * pol3;
+	Polynomial pol15 = pol3 * 2;
+	Polynomial pol16 = 2 * pol3;
+	EXPECT_EQ(1.0, pol13[0]);
+	EXPECT_EQ(1.0, pol14[0]);
+	EXPECT_EQ(2, pol15[0]);
+	EXPECT_EQ(2, pol16[0]);
+}
