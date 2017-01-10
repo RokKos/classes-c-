@@ -255,3 +255,65 @@ TEST (Polynomial, OperatorMult) {
 	EXPECT_EQ(2, pol15[0]);
 	EXPECT_EQ(2, pol16[0]);
 }
+
+TEST (Polynomial, Derivate) {
+	// Testing derivate
+	int degree1 = 3;
+	int degree2 = 2;
+	double* coef1 = new double[degree1 + 1];
+	double* coef2 = new double[degree2 + 1];
+	for (int i = 0; i < degree1 + 1; ++i) {
+		coef1[i] = i + 1;
+	}
+	for (int i = 0; i < degree2 + 1; ++i) {
+		coef2[i] = i + 1;
+	}
+	double* coef3 = new double[1];
+	coef3[0] = 1.0;
+	Polynomial pol1(degree1, coef1);
+	Polynomial pol2(degree2, coef2);
+	Polynomial pol3(0,coef2);
+
+	// pol1' -> first derivate
+	Polynomial pol4 = pol1(1);
+	//double* rez2 = new double[4]{2,6,12}; actual values
+	for (int i = 0; i < degree1; ++i) {
+		EXPECT_EQ(coef1[i+1] * (i+1), pol4[i]);  // rez2[i] can compare to this
+	}
+
+	Polynomial pol5 = pol2(1);
+	for (int i = 0; i < degree2; ++i) {
+		EXPECT_EQ(coef2[i+1] * (i+1), pol5[i]);
+	}
+
+	// When derivate is largen the degree
+	Polynomial pol6 = pol3(1);
+	EXPECT_EQ(0, pol6[0]);
+	Polynomial pol7 = pol3(2);
+	EXPECT_EQ(0, pol7[0]);
+
+	// pol1'' -> second derivate
+	Polynomial pol8 = pol1(2);
+	for (int i = 0; i < degree1 - 1; ++i) {
+		EXPECT_EQ(coef1[i+2] * (i+1) * (i+2), pol8[i]);
+	}
+
+	Polynomial pol9 = pol2(2);
+	for (int i = 0; i < degree2 - 1; ++i) {
+		EXPECT_EQ(coef2[i+2] * (i+1) * (i+2), pol9[i]);
+	}
+
+	// Values at first derivate
+	EXPECT_EQ(62, pol1(1, 2));
+	EXPECT_EQ(20, pol2(1, 3));
+	EXPECT_EQ(0, pol3(1, 3));
+
+	// Values at second derivate
+	EXPECT_EQ(54, pol1(2, 2));
+	EXPECT_EQ(6, pol2(2, 1000));
+	EXPECT_EQ(0, pol3(2, 100));
+
+
+
+
+}

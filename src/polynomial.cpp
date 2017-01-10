@@ -157,8 +157,18 @@ const Polynomial operator*(const int c, const Polynomial& rhs1) {
 	return result;
 }
 
-Polynomial& Polynomial::operator()(const int k) {
+const Polynomial Polynomial::operator()(const int k) const{
 	assert(k >= 0);
+
+	if ( k > this->degree) {
+		// Corner case
+		double* t = new double[1];
+		t[0] = 0;
+		Polynomial p(0,t);
+		delete[] t;
+		return p;
+	}
+
 	int newDegree = this->degree - k;
 	double* newCoef = new double[newDegree + 1];
 	for (int i = k; i < this->degree + 1; ++i) {
@@ -168,21 +178,23 @@ Polynomial& Polynomial::operator()(const int k) {
 		for (int j = i - k + 1; j < i + 1; ++j) {
 			t *= j;
 		}
-		// Multyplay by all derivates
+		// Multiply by all derivates
 		newCoef[i - k] *= t;
 	}
-	delete[] coeffcients;
-	// Copy over new coefficients
-	coeffcients = new double[newDegree + 1];
-	for (int i = 0; i < newDegree + 1; ++i) {
-		coeffcients[i] = newCoef[i];
-	}
-	this->degree = newDegree;
-	return *this;
+	// Create new Polynom and return it
+	Polynomial result(newDegree, newCoef);
+	delete[] newCoef;
+
+	return result;
 }
 
-const double Polynomial::operator()(const int k, const double x) {
+const double Polynomial::operator()(const int k, const double x) const{
 	assert(k >= 0);
+
+	if ( k > this->degree) {
+		return 0;
+	}
+
 	int newDegree = this->degree - k;
 	double* newCoef = new double[newDegree + 1];
 	for (int i = k; i < this->degree + 1; ++i) {

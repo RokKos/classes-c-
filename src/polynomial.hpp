@@ -36,8 +36,8 @@ public:
 	// Get degree of polynom
 	int getDegree() const;
 	// K-derivate of polynom
-	Polynomial& operator()(const int);
-	const double operator()(const int, const double);
+	const Polynomial operator()(const int) const;
+	const double operator()(const int, const double) const;
 
 };
 
