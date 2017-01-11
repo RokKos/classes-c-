@@ -213,3 +213,23 @@ const double Polynomial::operator()(const int k, const double x) const{
 	}
 	return result;
 }
+
+const double Polynomial::computeZero (double x) const{
+	const double tolerance = 0.000000001;  // 10^-9
+	double valueOfPolynom = 0.0;
+	double valueOfDerivate = 0.0;
+	while (true) {
+		valueOfPolynom = (*this)(0,x);
+		valueOfDerivate = (*this)(1,x);
+		if (fabs(valueOfPolynom) <= tolerance || fabs(valueOfDerivate) <= tolerance) {
+			break;
+		}
+		x = x - valueOfPolynom / valueOfDerivate;
+	}
+	// If value of dervate is smaller than tolerance then result is not valid
+	assert (!(fabs(valueOfDerivate) <= tolerance) && !(fabs(valueOfDerivate) <= fabs(valueOfPolynom)));
+	//If passes this assert then result is valid
+	return x;
+
+
+}

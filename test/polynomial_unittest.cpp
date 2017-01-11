@@ -313,7 +313,23 @@ TEST (Polynomial, Derivate) {
 	EXPECT_EQ(6, pol2(2, 1000));
 	EXPECT_EQ(0, pol3(2, 100));
 
+}
 
-
-
+TEST (Polynomial, computeZero) {
+	int degree1 = 3;
+	int degree2 = 2;
+	double* coef1 = new double[degree1 + 1];
+	double* coef2 = new double[degree2 + 1];
+	for (int i = 0; i < degree1 + 1; ++i) {
+		coef1[i] = i + 1;
+	}
+	for (int i = 0; i < degree2 + 1; ++i) {
+		coef2[i] = i + 1;
+	}
+	coef2[0] = -2;
+	Polynomial pol1(degree1, coef1);
+	Polynomial pol2(degree2, coef2);
+	const double tolerance = 0.00000001;  // 10^-8
+	EXPECT_TRUE(fabs(-0.605829586 - pol1.computeZero(0.75) < tolerance ));
+	EXPECT_TRUE(fabs(0.548583770 - pol2.computeZero(2)) < tolerance);
 }

@@ -16,7 +16,6 @@ mkdir -p build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 make -j8
-make -j8 Polynomial_coverage
 # Checks if last comand didn't output 0
 # $? checks what last command outputed
 # If output is 0 then command is succesfuly executed
@@ -28,6 +27,7 @@ if [ $? -ne 0 ]; then
 fi
 
 showinfo "Running tests ..."
+make -j8 Polynomial_coverage
 ../bin/tests
 if [ $? -ne 0 ]; then
     error "Error: there are failed tests!"

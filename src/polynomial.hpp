@@ -39,6 +39,8 @@ public:
 	const Polynomial operator()(const int) const;
 	const double operator()(const int, const double) const;
 
+	const double computeZero (double x) const;
+
 };
 
 std::ostream& operator<<(std::ostream& output, const Polynomial& x);
