@@ -42,6 +42,7 @@ after_success:
   - lcov --remove coverage.info 'test/googletest/*' '/usr/*' --output-file coverage.info # filter out system
   - lcov --list coverage.info #debug info
   - coveralls-lcov --repo-token ${COVERALLS_TOKEN} coverage.info
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
 
 notifications:
   email:
