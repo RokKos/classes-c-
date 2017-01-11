@@ -1,6 +1,11 @@
 #include "polynomial.hpp"
 
-Polynomial::Polynomial(int _degree, double* _coeffcients){
+Polynomial::Polynomial() {
+	this->degree = 0;
+	coeffcients = new double[0];
+}
+
+Polynomial::Polynomial(int _degree, double* _coeffcients) {
 	assert(_degree>=0);
 	this->degree = _degree;
 	coeffcients = new double[_degree + 1];  // there is n+1 coeffcients

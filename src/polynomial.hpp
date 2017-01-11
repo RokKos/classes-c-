@@ -22,6 +22,7 @@ private:
 
 public:
 	// Constructor
+	Polynomial ();
 	Polynomial (int _degree, double* _coeffcients);
 	// Copy Constructor
 	Polynomial (const Polynomial& rhs);
