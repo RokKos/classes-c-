@@ -34,13 +34,9 @@ Polynomial& Polynomial::operator=(const Polynomial& rhs) {
 	// Check if size has changed
 	if (this->degree != newDegre) {
 		this->degree = newDegre;
-		if (this->degree == 0) {
-			coeffcients = (double*) NULL;
-		} else {
-			// Erase previus array and create new one
-			delete[] coeffcients;
-			coeffcients = new double[this->degree + 1];
-		}
+		// Erase previus array and create new one
+		delete[] coeffcients;
+		coeffcients = new double[this->degree + 1];
 	}
 	// If size didn't changed then just overvrite previus values
 	for (int i = 0; i < this->degree + 1; ++i) {
@@ -54,6 +50,8 @@ const double& Polynomial::operator[](int i) const{
 	return coeffcients[i];
 }
 
+// Because it is not constant reference and method is also not constant
+// You get reference to value and you can read and also write into this variable
 double& Polynomial::operator[](int i) {
 	assert(i>=0 && i <= this->degree);
 	return coeffcients[i];
