@@ -269,6 +269,10 @@ TEST_F (PolynomialTest, Derivate) {
 	EXPECT_EQ(0, pol6[0]);
 	Polynomial pol7 = polinom3(2);
 	EXPECT_EQ(0, pol7[0]);
+	Polynomial pol10 = polinom2(3);
+	EXPECT_EQ(0, pol10[0]);
+	Polynomial pol11 = polinom1(4);
+	EXPECT_EQ(0, pol11[0]);
 
 	// pol1'' -> second derivate
 	Polynomial pol8 = polinom1(2);
@@ -291,10 +295,14 @@ TEST_F (PolynomialTest, Derivate) {
 	EXPECT_EQ(6, polinom2(2, 1000));
 	EXPECT_EQ(0, polinom3(2, 100));
 
+	// Values at third derivate
+	EXPECT_EQ(24, polinom1(3, 2));
+	EXPECT_EQ(0, polinom2(3, 1000));
+	EXPECT_EQ(0, polinom3(3, 100));
 }
 
 TEST_F (PolynomialTest, computeZero) {
 	const double tolerance = 0.00000001;  // 10^-8
-	EXPECT_TRUE(fabs(-0.605829586 - polinom1.computeZero(0.75) < tolerance ));
+	EXPECT_TRUE(fabs(-0.605829586 - polinom1.computeZero(0.75)) < tolerance );
 	EXPECT_TRUE(fabs(0.548583770 - polinom2.computeZero(2)) < tolerance);
 }

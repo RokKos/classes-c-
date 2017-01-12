@@ -1,4 +1,12 @@
-# Classes C++ [![Build Status][travis-badge]][travis-link] [![MIT License][license-badge]](LICENSE.md) [![Coverage Status][coveralls-badge]][coveralls-link] [![codecov][codecov-badge]][codecov-link]
+# Classes C++
+[![Travis CI logo][travis-image]][travis-link]
+[![Codecov logo][codecov-image]]][codecov-link]
+
+[![Build Status][travis-badge]][travis-link]
+[![codecov][codecov-badge]][codecov-link]
+[![MIT License][license-badge]](LICENSE.md)
+[![Coverage Status][coveralls-badge]][coveralls-link] 
+
 Repository for implementation of mathematical structures in as C++ classes.
 
 ### Table of Contents
@@ -57,8 +65,10 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 [travis-badge]:    https://travis-ci.org/RokKos/classes-c-.svg?branch=master
 [travis-link]:     https://travis-ci.org/RokKos/classes-c-
+[travis-image]:    https://github.com/RokKos/FRI_Programiranje/blob/master/ima/TravisCI.png
 [license-badge]:   https://img.shields.io/badge/license-MIT-007EC7.svg
 [coveralls-badge]: https://coveralls.io/repos/github/RokKos/classes-c-/badge.svg?branch=master
-[coveralls-link]: https://coveralls.io/github/RokKos/classes-c-?branch=master
-[codecov-badge]: https://codecov.io/gh/RokKos/classes-c-/branch/master/graph/badge.svg
-[codecov-link]: https://codecov.io/gh/RokKos/classes-c-
+[coveralls-link]:  https://coveralls.io/github/RokKos/classes-c-?branch=master
+[codecov-badge]:   https://codecov.io/gh/RokKos/classes-c-/branch/master/graph/badge.svg
+[codecov-link]:    https://codecov.io/gh/RokKos/classes-c-
+[codecov-image]:    https://github.com/RokKos/FRI_Programiranje/blob/master/ima/Codecov.png

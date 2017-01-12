@@ -2,7 +2,8 @@
 
 Polynomial::Polynomial() {
 	this->degree = 0;
-	coeffcients = new double[0];
+	coeffcients = new double[1];
+	coeffcients[0] = 0;
 }
 
 Polynomial::Polynomial(int _degree, double* _coeffcients) {
@@ -124,6 +125,8 @@ const Polynomial operator*(const Polynomial& rhs1, const Polynomial& rhs2) {
 			result[i+j] += rhs1[i] * rhs2[j];
 		}
 	}
+	// Clean dinamycal array so that doesnt come to the memory leak
+	delete[] newCoef;
 
 	return result;
 }
@@ -165,10 +168,7 @@ const Polynomial Polynomial::operator()(const int k) const{
 
 	if ( k > this->degree) {
 		// Corner case
-		double* t = new double[1];
-		t[0] = 0;
-		Polynomial p(0,t);
-		delete[] t;
+		Polynomial p;
 		return p;
 	}
 
