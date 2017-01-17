@@ -1,5 +1,5 @@
-#ifndef _POLYNOMIAL_HPP_
-#define _POLYNOMIAL_HPP_
+#ifndef _SRC_POLYNOMIAL_HPP_
+#define _SRC_POLYNOMIAL_HPP_
 
 // System includes
 #include <cassert>
@@ -69,4 +69,4 @@ const Polynomial operator*(const Polynomial&, const int);
 const Polynomial operator*(const int, const Polynomial&);
 
 
-#endif  // _POLYNOMIAL_HPP_
+#endif  // _SRC_POLYNOMIAL_HPP_

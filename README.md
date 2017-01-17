@@ -50,7 +50,7 @@ or you can run the bash script that does this automatically:
 ```
 If all tests are green then you are good to go.
 
-## Built With
+##<a name="build"> Built With
 * [Google Tests](https://github.com/google/googletest) - Google's C++ test framework
 * [CMake](https://cmake.org/) - Cross-platform free and open-source software for managing the build process of software using a compiler-independent method
 

@@ -105,25 +105,34 @@ TEST_F (PolynomialTest, CopyConstructor) {
 		EXPECT_EQ(polinom2[i], polinom5[i]);
 	}
 
-	Polynomial polinom6(polinom3);
+	Polynomial polinom7 = polinom2;
+	ASSERT_EQ(degree2, polinom7.getDegree());
+	for (int i = 0; i < degree2 + 1; ++i) {
+		EXPECT_EQ(polinom2[i], polinom7[i]);
+	}
+
+	Polynomial polinom6 = polinom3;
 	ASSERT_EQ(0, polinom6.getDegree());
 	EXPECT_EQ(1.0, polinom6[0]);
 }
 
 TEST_F (PolynomialTest, AssigmentOperator) {
-	Polynomial polinom4 = polinom1;
+	Polynomial polinom4(polinom2);
+	polinom4 = polinom1;
 	ASSERT_EQ(degree1, polinom4.getDegree());
 	for (int i = 0; i < degree1 + 1; ++i) {
 		EXPECT_EQ(polinom1[i], polinom4[i]);
 	}
 
-	Polynomial polinom5(polinom2);
+	Polynomial polinom5(polinom3);
+	polinom5 = polinom2;
 	ASSERT_EQ(degree2, polinom5.getDegree());
 	for (int i = 0; i < degree2 + 1; ++i) {
 		EXPECT_EQ(polinom2[i], polinom5[i]);
 	}
 
-	Polynomial polinom6 = polinom3;
+	Polynomial polinom6(polinom1);
+	polinom6 = polinom3;
 	ASSERT_EQ(0, polinom6.getDegree());
 	EXPECT_EQ(1.0, polinom6[0]);
 }
