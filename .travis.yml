@@ -15,6 +15,8 @@ addons:
             - g++-5
             - lcov
 
+    code_climate:
+        repo_token: a4a84c6e8970fd937ad03be16913bba965c38204c53e9337754e0e88a63d6694
 
 branches:
   only:
