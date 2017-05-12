@@ -34,6 +34,19 @@ if [ $? -ne 0 ]; then
     exit 4
 fi
 
+# Checks coding style
+# Coding style is addopted by google c++ standarts
+# find finds all files that ends with cpp or hpp extenstion
+# xarg executes every output from find
+cd ..
+find -regex '\./\(src\|test\)\/.*\.\(cpp\|hpp\)' | xargs -n 1  -P 8 python2 cpplint.py --filter=-legal,-whitespace/tab
+
+if [ $? -ne 0 ]; then
+    error "Error: Failed style check!"
+    exit 5
+fi
+
+
 workingprocess "All tests compile and pass."
 
 # Cleaning build directory

@@ -7,7 +7,7 @@ Polynomial::Polynomial() {
 }
 
 Polynomial::Polynomial(int _degree, double* _coeffcients) {
-	assert(_degree>=0);
+	assert(_degree >= 0);
 	this->degree = _degree;
 	coeffcients = new double[_degree + 1];  // there is n+1 coeffcients
 	for (int i = 0; i < _degree + 1; ++i) {
@@ -15,8 +15,8 @@ Polynomial::Polynomial(int _degree, double* _coeffcients) {
 	}
 }
 
-Polynomial::Polynomial(const Polynomial& rhs){
-	assert(rhs.getDegree()>=0);
+Polynomial::Polynomial(const Polynomial& rhs) {
+	assert(rhs.getDegree() >= 0);
 	this->degree = rhs.getDegree();
 	coeffcients = new double[this->degree + 1];
 	for (int i = 0; i < this->degree + 1; ++i) {
@@ -24,7 +24,7 @@ Polynomial::Polynomial(const Polynomial& rhs){
 	}
 }
 
-Polynomial::~Polynomial(){
+Polynomial::~Polynomial() {
 	if (this->degree > 0) {
 		delete[] coeffcients;
 	}
@@ -46,19 +46,19 @@ Polynomial& Polynomial::operator=(const Polynomial& rhs) {
 	return *this;
 }
 
-const double& Polynomial::operator[](int i) const{
-	assert(i>=0 && i <= this->degree);
+const double& Polynomial::operator[](int i) const {
+	assert(i >= 0 && i <= this->degree);
 	return coeffcients[i];
 }
 
 // Because it is not constant reference and method is also not constant
 // You get reference to value and you can read and also write into this variable
 double& Polynomial::operator[](int i) {
-	assert(i>=0 && i <= this->degree);
+	assert(i >= 0 && i <= this->degree);
 	return coeffcients[i];
 }
 
-int Polynomial::getDegree() const{
+int Polynomial::getDegree() const {
 	return this->degree;
 }
 
@@ -163,10 +163,10 @@ const Polynomial operator*(const int c, const Polynomial& rhs1) {
 	return result;
 }
 
-const Polynomial Polynomial::operator()(const int k) const{
+const Polynomial Polynomial::operator()(const int k) const {
 	assert(k >= 0);
 
-	if ( k > this->degree) {
+	if (k > this->degree) {
 		// Corner case
 		Polynomial p;
 		return p;
@@ -191,10 +191,10 @@ const Polynomial Polynomial::operator()(const int k) const{
 	return result;
 }
 
-const double Polynomial::operator()(const int k, const double x) const{
+const double Polynomial::operator()(const int k, const double x) const {
 	assert(k >= 0);
 
-	if ( k > this->degree) {
+	if (k > this->degree) {
 		return 0;
 	}
 
@@ -214,25 +214,26 @@ const double Polynomial::operator()(const int k, const double x) const{
 	for (int i = 0; i < newDegree + 1; ++i) {
 		result += newCoef[i] * pow(x, i);
 	}
+	delete[] newCoef;
 	return result;
 }
 
-const double Polynomial::computeZero (double x) const{
+const double Polynomial::computeZero(double x) const {
 	const double tolerance = 0.000000001;  // 10^-9
 	double valueOfPolynom = 0.0;
 	double valueOfDerivate = 0.0;
 	while (true) {
-		valueOfPolynom = (*this)(0,x);
-		valueOfDerivate = (*this)(1,x);
-		if (fabs(valueOfPolynom) <= tolerance || fabs(valueOfDerivate) <= tolerance) {
+		valueOfPolynom = (*this)(0, x);
+		valueOfDerivate = (*this)(1, x);
+		if (fabs(valueOfPolynom) <= tolerance ||
+		 fabs(valueOfDerivate) <= tolerance) {
 			break;
 		}
 		x = x - valueOfPolynom / valueOfDerivate;
 	}
 	// If value of dervate is smaller than tolerance then result is not valid
-	assert (!(fabs(valueOfDerivate) <= tolerance) && !(fabs(valueOfDerivate) <= fabs(valueOfPolynom)));
-	//If passes this assert then result is valid
+	assert(!(fabs(valueOfDerivate) <= tolerance) &&
+	 !(fabs(valueOfDerivate) <= fabs(valueOfPolynom)));
+	// If passes this assert then result is valid
 	return x;
-
-
 }
