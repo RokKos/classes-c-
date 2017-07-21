@@ -2,7 +2,7 @@
 #define _SRC_STACK_HPP_
 
 // System includes
-#include <cstdlib>  // For NULL definition
+
 // User includes
 
 
@@ -50,7 +50,7 @@ public:
 template <class T>
 Stack<T>::Stack() {
 	this->N = 0;
-	this->first = new Node(NULL);
+	this->first = new Node(T());  // T() is default value
 }
 
 template <class T>
@@ -73,19 +73,24 @@ T Stack<T>::top() {
 
 template <class T>
 T Stack<T>::pop() {
-	N--;
-	// Save for later to return
-	T returnValue = this->top();
-	// Save reference so that we can delete this node
-	Node* oldFirst = this->first;
-	this->first = this->first->next;
-	delete oldFirst;
-	return returnValue;
+	// Can we even pop somethin out
+	if (!this->isEmpty()) {
+		N--;
+		// Save for later to return
+		T returnValue = this->top();
+		// Save reference so that we can delete this node
+		Node* oldFirst = this->first;
+		this->first = this->first->next;
+		delete oldFirst;
+		return returnValue;
+	}
+	return T();  // return default value of type
+
 }
 
 template <class T>
 bool Stack<T>::isEmpty() {
-	if (first->next == NULL) {  // Its the same as cheking if N == 0
+	if (first->next == nullptr) {  // Its the same as cheking if N == 0
 		return true;
 	}
 	return false;
