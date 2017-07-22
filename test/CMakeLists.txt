@@ -9,6 +9,7 @@ set(TEST_FILES
     complex_unittest.cpp
     stack_unittest.cpp
     queue_unittest.cpp
+    union_find_unittest.cpp
 )
 
 add_executable(tests ${TEST_FILES})

@@ -44,8 +44,8 @@ public:
 	void push(T item);
 	T top();
 	T pop();
-	bool isEmpty();
-	int size();
+	bool isEmpty() const;
+	int size() const;
 };
 
 template <class T>
@@ -95,7 +95,7 @@ T Queue<T>::pop() {
 }
 
 template <class T>
-bool Queue<T>::isEmpty() {
+bool Queue<T>::isEmpty() const {
 	if (first->next == nullptr) {  // Its the same as cheking if N == 0
 		return true;
 	}
@@ -103,7 +103,7 @@ bool Queue<T>::isEmpty() {
 }
 
 template <class T>
-int Queue<T>::size() {
+int Queue<T>::size() const {
 	return this->N;
 }
 
