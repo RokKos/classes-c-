@@ -1,6 +1,6 @@
 #include "union_find.hpp"
 
-UnionFind::UnionFind(int N) {
+UnionFind::UnionFind(const int N) {
 	component = new int[N];
 	size_of_tree = new int[N];
 	for (int i = 0; i < N; ++i) {
@@ -23,7 +23,7 @@ int UnionFind::find(int p) const {
 	return component[p];
 }
 
-void UnionFind::union_nodes(int p, int q) {
+void UnionFind::union_nodes(const int p, const int q) {
 	int component_p = find(p);
 	int component_q = find(q);
 
@@ -39,7 +39,7 @@ void UnionFind::union_nodes(int p, int q) {
 	}
 }
 
-bool UnionFind::connected(int p, int q) const {
+bool UnionFind::connected(const int p, const int q) const {
 	return find(p) == find(q);
 }
 

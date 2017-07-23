@@ -41,7 +41,7 @@ public:
 	// Destructor
 	~Queue();
 
-	void push(T item);
+	void push(const T item);
 	T top();
 	T pop();
 	bool isEmpty() const;
@@ -61,7 +61,7 @@ Queue<T>::~Queue() {
 }
 
 template <class T>
-void Queue<T>::push(T item) {
+void Queue<T>::push(const T item) {
 	Node* newLast = new Node(T());
 	last->value = item;
 	this->last->next = newLast;

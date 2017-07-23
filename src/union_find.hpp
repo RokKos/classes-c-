@@ -19,13 +19,13 @@ private:
 
 public:
 	// Constructor
-	UnionFind(int N);
+	UnionFind(const int N);
 	// Destructor
 	~UnionFind();
 
-	void union_nodes(int p, int q);  // Connect two nodes
+	void union_nodes(const int p, const int q);  // Connect two nodes
 	int find(int p) const;  // Find to which component node belongs
-	bool connected(int p, int q) const;  //
+	bool connected(const int p, const int q) const;  //
 	int count() const;
 
 };

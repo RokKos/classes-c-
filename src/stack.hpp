@@ -40,7 +40,7 @@ public:
 	// Destructor
 	~Stack();
 
-	void push(T item);
+	void push(const T item);
 	T top();
 	T pop();
 	bool isEmpty() const;
@@ -59,7 +59,7 @@ Stack<T>::~Stack() {
 }
 
 template <class T>
-void Stack<T>::push(T item) {
+void Stack<T>::push(const T item) {
 	N++;
 	Node* newFirst = new Node(item);
 	newFirst->next = this->first;
