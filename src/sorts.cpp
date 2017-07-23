@@ -39,3 +39,27 @@ void selectionSort(int* array, const int size) {
 		swapElem(array, i, index);
 	}
 }
+
+void insertionSort(int* array, const int size) {
+	for (int i = 1; i < size; ++i) {
+		bool flag = true;
+		for (int j = i - 1; j >= 0; --j) {
+			if (compare(array[i], array[j])) {
+				int temp = array[i];
+				for (int k = i; k > j; --k) {
+					array[k] = array[k - 1];
+				}
+				array[j + 1] = temp;
+				flag = false;
+				break;
+			}
+		}
+		if (flag) {
+			int temp = array[i];
+			for (int k = i; k > 0; --k) {
+				array[k] = array[k - 1];
+			}
+			array[0] = temp;
+		}
+	}
+}

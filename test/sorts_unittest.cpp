@@ -98,6 +98,14 @@ TEST(Sorts, isSorted) {
 	int* smallArr = new int[1];
 	ASSERT_EQ(true, isSorted(smallArr, 1));
 
+	int* sameArr = new int[10];
+	for (int i = 0; i < 10; ++i) {
+		sameArr[i] = 10;
+	}
+
+	ASSERT_EQ(true, isSorted(sameArr, 10));
+
+	delete[] sameArr;
 	delete[] smallArr;
 	delete[] arr;
 }
@@ -132,7 +140,56 @@ TEST(Sorts, selectionSort) {
 	selectionSort(smallArr, 1);
 	ASSERT_EQ(1, smallArr[0]);
 
+	int* sameArr = new int[10];
+	for (int i = 0; i < 10; ++i) {
+		sameArr[i] = 10;
+	}
+	selectionSort(sameArr, 10);
+	ASSERT_EQ(true, isSorted(sameArr, 10));
+
+	delete[] sameArr;
 	delete[] smallArr;
 	delete[] arr;
 }
 
+TEST(Sorts, insertionSort) {
+	int* arr = new int[10];
+	for (int i = 0; i < 10; ++i) {
+		arr[i] = i;
+	}
+
+	insertionSort(arr, 10);
+	for (int i = 0; i < 10; ++i) {
+		ASSERT_EQ(i, arr[i]);
+	}
+
+	swapElem(arr, 0, 1);
+	swapElem(arr, 0, 6);
+	swapElem(arr, 2, 8);
+	swapElem(arr, 5, 7);
+	swapElem(arr, 3, 9);
+	swapElem(arr, 1, 3);
+	swapElem(arr, 5, 7);
+	swapElem(arr, 7, 0);
+
+	insertionSort(arr, 10);
+	for (int i = 0; i < 10; ++i) {
+		ASSERT_EQ(i, arr[i]);
+	}
+
+	int* smallArr = new int[1];
+	smallArr[0] = 1;
+	insertionSort(smallArr, 1);
+	ASSERT_EQ(1, smallArr[0]);
+
+	int* sameArr = new int[10];
+	for (int i = 0; i < 10; ++i) {
+		sameArr[i] = 10;
+	}
+	insertionSort(sameArr, 10);
+	ASSERT_EQ(true, isSorted(sameArr, 10));
+
+	delete[] sameArr;
+	delete[] smallArr;
+	delete[] arr;
+}

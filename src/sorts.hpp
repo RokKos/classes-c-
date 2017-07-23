@@ -44,4 +44,11 @@ bool isSorted(const int* array, const int size);
  */
 void selectionSort(int* array, const int size);
 
+/**
+ * @brief Elementary sort that orders array by inserting element at riht place
+ * @param Array to sort.
+ */
+
+void insertionSort(int* array, const int size);
+
 #endif  // _SRC_SORTS_HPP_
