@@ -63,3 +63,21 @@ void insertionSort(int* array, const int size) {
 		}
 	}
 }
+
+void shellSort(int* array, const int size) {
+	int h = 1;  // Determing how long will subsequence be
+	while (h < size/3) {
+		h = 3 * h + 1;
+	}
+
+	while(h > 0) {
+		for (int i = h; i < size; ++i) {
+			for(int j = i; j >= h; j -= h) {
+				if (compare(array[j-h], array[j])) {
+					swapElem(array, j-h, j);
+				}
+			}
+		}
+		h /= 3;
+	}
+}

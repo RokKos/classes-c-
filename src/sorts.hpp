@@ -51,4 +51,11 @@ void selectionSort(int* array, const int size);
 
 void insertionSort(int* array, const int size);
 
+/**
+ * @brief Elementary sort that orders array by h-sorting h long subsequence.
+ * @param Array to sort.
+ */
+
+void shellSort(int* array, const int size);
+
 #endif  // _SRC_SORTS_HPP_
