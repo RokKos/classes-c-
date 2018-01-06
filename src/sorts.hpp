@@ -11,7 +11,6 @@
  * @brief Class that represent grpup of differend sorts with helping functions.
  */
 
-
 /**
  * @brief Compares two values together
  * @param Two values that it compares

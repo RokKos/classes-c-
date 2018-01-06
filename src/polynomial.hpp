@@ -2,12 +2,11 @@
 #define _SRC_POLYNOMIAL_HPP_
 
 // System includes
+#include <math.h>
 #include <cassert>
 #include <iostream>
-#include <math.h>
 
 // User includes
-
 
 /**
  * @file polynomial.hpp
@@ -16,32 +15,31 @@
  */
 
 class Polynomial {
-private:
-	int degree;
-	double* coeffcients;
+ private:
+  int degree;
+  double* coeffcients;
 
-public:
-	// Constructor
-	Polynomial ();
-	Polynomial (int _degree, double* _coeffcients);
-	// Copy Constructor
-	Polynomial (const Polynomial& rhs);
-	// Destructor
-	~Polynomial();
-	// Assigment operator
-	Polynomial& operator=(const Polynomial& rhs);
-	// Getting i-th coeffcient with []
-	const double& operator[](int i) const;
-	// Setting i-th coeffcient with []
-	double& operator[](int i);
-	// Get degree of polynom
-	int getDegree() const;
-	// K-derivate of polynom
-	const Polynomial operator()(const int) const;
-	const double operator()(const int, const double) const;
+ public:
+  // Constructor
+  Polynomial();
+  Polynomial(int _degree, double* _coeffcients);
+  // Copy Constructor
+  Polynomial(const Polynomial& rhs);
+  // Destructor
+  ~Polynomial();
+  // Assigment operator
+  Polynomial& operator=(const Polynomial& rhs);
+  // Getting i-th coeffcient with []
+  const double& operator[](int i) const;
+  // Setting i-th coeffcient with []
+  double& operator[](int i);
+  // Get degree of polynom
+  int getDegree() const;
+  // K-derivate of polynom
+  const Polynomial operator()(const int) const;
+  const double operator()(const int, const double) const;
 
-	const double computeZero (double x) const;
-
+  const double computeZero(double x) const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Polynomial& x);
@@ -67,6 +65,5 @@ const Polynomial operator*(const double, const Polynomial&);
 // Multiplying int to polynom
 const Polynomial operator*(const Polynomial&, const int);
 const Polynomial operator*(const int, const Polynomial&);
-
 
 #endif  // _SRC_POLYNOMIAL_HPP_

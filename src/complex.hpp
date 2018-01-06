@@ -2,12 +2,11 @@
 #define _SRC_COMLEX_HPP_
 
 // System includes
+#include <math.h>
 #include <cassert>
 #include <iostream>
-#include <math.h>
 
 // User includes
-
 
 /**
  * @file complex.hpp
@@ -16,34 +15,33 @@
  */
 
 /*TODO:
-	- + operator(complex, int, double)
-	- * operator
-	- / operator
-	- abs
-	- konjugirano
+        - + operator(complex, int, double)
+        - * operator
+        - / operator
+        - abs
+        - konjugirano
 */
 
 class Complex {
-private:
-	double real;
-	double imaginary;
+ private:
+  double real;
+  double imaginary;
 
-public:
-	// Constructor
-	Complex ();
-	Complex (double _real, double _imaginary);
-	// Copy Constructor
-	Complex (const Complex& rhs);
-	// Destructor
-	~Complex();
-	// Assigment operator
-	Complex& operator=(const Complex& rhs);
-	// Get degree of polynom
-	double getReal() const;
-	double getImaginary() const;
+ public:
+  // Constructor
+  Complex();
+  Complex(double _real, double _imaginary);
+  // Copy Constructor
+  Complex(const Complex& rhs);
+  // Destructor
+  ~Complex();
+  // Assigment operator
+  Complex& operator=(const Complex& rhs);
+  // Get degree of polynom
+  double getReal() const;
+  double getImaginary() const;
 
-	const double abs () const;
-
+  const double abs() const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Complex& x);
